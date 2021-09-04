@@ -14,7 +14,7 @@ Change [TwelveDays](../chapter-code/chapter1/TwelveDays.java) so that it is poss
 
 ### Response
 
-Response...
+This adds an abstraction of the day string. Additionally, a check for the arguments is implemented. In this case I made this a single line which sets the `digits` flag, but if more than one argument was to be supported it would likely make sense for this to be handled by an `checkArguments(args)` method or an abstraction for each flag to be set.
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>

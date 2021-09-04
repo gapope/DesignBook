@@ -18,14 +18,20 @@ package chapter1;
  */
 public class TwelveDays
 {
+	private static boolean digits = false;
 	public static void main(String[] args)
 	{
+		digits = (args != null && args.length > 0 && args[0].equals("digits"));
 		System.out.println(poem());
 	}
 	
-	static String[] DAYS = {"first", "second", "third", "fourth",
+	static String[] DAYS_WRITTEN = {"first", "second", "third", "fourth",
 							"fifth", "sixth", "seventh", "eighth",
 							"ninth", "tenth", "eleventh", "twelfth"};
+	
+	static String[] DAYS_DIGIT = {"1st", "2nd", "3rd", "4th",
+			"5th", "6th", "7th", "8th",
+			"9th", "10th", "11th", "12th"};
 	
 	static String[] GIFTS = {
 			"a partridge in a pear tree",
@@ -43,11 +49,19 @@ public class TwelveDays
 	};
 	
 	/*
+	 * Returns the days string depending on if the argument to print days with digits was given
+	 */
+	static String dayString(int day)
+	{
+		return (digits) ? DAYS_DIGIT[day] : DAYS_WRITTEN[day];
+	}
+	
+	/*
      * Returns the first line in the verse for a given day.
 	 */
 	static String firstLine(int day)
 	{
-	  return "On the " + DAYS[day] +
+	  return "On the " + dayString(day) +
 	    " day of Christmas my true love sent to me:\n";
 	}
 	
