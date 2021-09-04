@@ -4,9 +4,17 @@
 
 Rewrite [TwelveDays](../chapter-code/chapter1/TwelveDays.java) in an iterative style, as opposed to recursive. What is the impact of this change on the design? Does this change move the solution in the design space? If so, how?
 
+### Response
+
+The change is restricted to the one function so has minimal impact on the design. It could be more readable for people unfamiliar with recursion, but otherwise this solution should be at a similar point in the design space to the original.
+
 ## Exercise 2
 
 Change [TwelveDays](../chapter-code/chapter1/TwelveDays.java) so that it is possible to choose between displaying the number of the days written out (for example "third" day), as in the original version, or using digits (for example "3rd day"). If the user includes the command-line argument "digit", the program should use digits. In all other cases, the original, written-out form should be used. What is the impact of your solution on the quality attributes of the design?
+
+### Response
+
+Response...
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>

@@ -57,6 +57,7 @@ public class TwelveDays
 	 */
 	static String allGifts(int day)
 	{
+		/*
 		if( day == 0 ) 
 		{ 
 			return "and " + GIFTS[0]; 
@@ -65,6 +66,16 @@ public class TwelveDays
 		{ 
 			return GIFTS[day] + "\n" + allGifts(day-1);	
 		}
+		*/
+		
+		String giftList = "";
+		
+		for (int i = day; i > 0; --i)
+		{
+			giftList += GIFTS[i] + "\n";
+		}
+
+		return giftList + "and " + GIFTS[0];
 	}
 	
 	/*
