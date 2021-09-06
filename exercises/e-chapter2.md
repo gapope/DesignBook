@@ -4,6 +4,10 @@
 
 Why is it technically possible to represent a playing card using six Boolean values (as mentioned on page 15)? Rewrite class [`Card`](../chapter-code/chapter2/Card.java) so that it is internally represented as six Boolean values. What is the impact of this change of the maintainers of class `Card`? What is the impact of this change on the users of class `Card`?
 
+### Response
+
+We can use 6 booleans if they're treated as bits of binary numbers; 2 bits for the 4 suits, 4 bits for the 12 ranks. This change has no effect on the users of the class card, however it makes the representation quite unintuitive internally and will generally cause the maintainers unnecessary headaches.
+
 ## Exercise 2
 
 Re-implement class `Card` as a single enumerated type. For the purpose of the Solitaire application, does this look like a superior or inferior solution to [this version](../chapter-code/chapter2/Card.java)? Why? Try writing down your answer in specific terms using terminology seen in Chapter 2.
