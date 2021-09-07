@@ -26,6 +26,15 @@ public class Card
 				Card card = new Card(rank, suit);
 				assert card.getRank() == rank;
 				assert card.getSuit() == suit;
+				
+				if (suit == Suit.DIAMONDS || suit == Suit.HEARTS)
+				{
+					assert suit.color() == Color.RED;
+				}
+				else
+				{
+					assert suit.color() == Color.BLACK;
+				}
 			}
 		}
 		
