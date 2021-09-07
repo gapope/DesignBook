@@ -12,6 +12,10 @@ We can use 6 booleans if they're treated as bits of binary numbers; 2 bits for t
 
 Re-implement class `Card` as a single enumerated type. For the purpose of the Solitaire application, does this look like a superior or inferior solution to [this version](../chapter-code/chapter2/Card.java)? Why? Try writing down your answer in specific terms using terminology seen in Chapter 2.
 
+### Response
+
+This implementation benefits from being immutable, and since the available interface is nearly the same it would likely be similarly useful for the purposes of Solitaire. It suffers for internal understandability and maintainability, especially where getting just the suit or just the rank is concerned.
+
 ## Exercise 3
 
 Modify the [`Suit`](../chapter-code/chapter2/Suit.java) enumerated type to include a method `color()` that returns the color of the suit. The return type should be a new enumerated type `Color`.
