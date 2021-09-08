@@ -23,7 +23,16 @@ public class Card
 		{
 			for( Suit suit : Suit.values() )
 			{
+				if ((suit == Suit.NO_SUIT && rank != Rank.JOKER) || 
+						(suit != Suit.NO_SUIT && rank == Rank.JOKER))
+				{
+					continue;
+				}
+				
 				Card card = new Card(rank, suit);
+				
+				System.out.println(rank + " " + suit);
+				
 				assert card.getRank() == rank;
 				assert card.getSuit() == suit;
 				
@@ -31,9 +40,13 @@ public class Card
 				{
 					assert suit.color() == Color.RED;
 				}
-				else
+				else if (suit == Suit.CLUBS || suit == Suit.SPADES)
 				{
 					assert suit.color() == Color.BLACK;
+				}
+				else
+				{
+					assert suit.color() == Color.NO_COLOR;
 				}
 			}
 		}
@@ -41,11 +54,11 @@ public class Card
 		System.out.println("Success");
 	}
 	
-	//private Rank aRank;
-	//private Suit aSuit;
+	private Rank aRank;
+	private Suit aSuit;
 	
-	private Boolean[] aSuitBool = new Boolean[2];
-	private Boolean[] aRankBool = new Boolean[4];
+	//private Boolean[] aSuitBool = new Boolean[2];
+	//private Boolean[] aRankBool = new Boolean[4];
 	
 	/**
 	 * Creates a new card object.
@@ -53,20 +66,23 @@ public class Card
 	 * @param pRank The rank of the card.
 	 * @param pSuit The suit of the card.
 	 * @pre pRank != null
-	 * @pre pSuit != null
+	 * @pre pSuit != null; if pRank is JOKER pSuit must be NO_SUIT, otherwise NO_SUIT should never be used
 	 */
 	public Card(Rank pRank, Suit pSuit)
 	{
 		assert pRank != null && pSuit != null;
+		assert pRank != Rank.JOKER || pSuit == Suit.NO_SUIT;
 
-		//aRank = pRank;
-		//aSuit = pSuit;
+		aRank = pRank;
+		aSuit = pSuit;
 		
+		/*
 		int suitValue = pSuit.ordinal();
 		valToBinaryBoolArr(suitValue, aSuitBool);
 		
 		int rankValue = pRank.ordinal();
 		valToBinaryBoolArr(rankValue, aRankBool);
+		*/
 	}
 	
 	/*
@@ -111,8 +127,8 @@ public class Card
 	 */
 	public Rank getRank()
 	{
-		//return aRank;
-		return Rank.values()[binaryBoolArrToVal(aRankBool)];
+		return aRank;
+		//return Rank.values()[binaryBoolArrToVal(aRankBool)];
 	}
 	
 	/**
@@ -120,7 +136,7 @@ public class Card
 	 */
 	public Suit getSuit()
 	{
-		//return aSuit;
-		return Suit.values()[binaryBoolArrToVal(aSuitBool)];
+		return aSuit;
+		//return Suit.values()[binaryBoolArrToVal(aSuitBool)];
 	}
 }

@@ -16,11 +16,21 @@ package chapter2;
  */
 public enum Suit 
 { 
-	CLUBS, DIAMONDS, SPADES, HEARTS;
+	NO_SUIT, CLUBS, DIAMONDS, SPADES, HEARTS;
 	
 	public Color color()
 	{
-		return (this == DIAMONDS || this == HEARTS) ? Color.RED : Color.BLACK;
+		switch (this)
+		{
+			case DIAMONDS:
+			case HEARTS:
+				return Color.RED;
+			case CLUBS:
+			case SPADES:
+				return Color.BLACK;
+			default:
+				return Color.NO_COLOR;	
+		}
 	}
 }
 
