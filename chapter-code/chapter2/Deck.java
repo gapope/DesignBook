@@ -33,6 +33,18 @@ public class Deck
 	}
 	
 	/**
+	 * Creates a deep copy of the deck
+	 * @param deck: deck to copy
+	 */
+	public Deck(Deck deck)
+	{
+		for (Card card: deck.aCards)
+		{
+			this.aCards.add(new Card(card.getRank(), card.getSuit()));
+		}
+	}
+	
+	/**
 	 * Reinitializes the deck with all 52 cards, and shuffles them.
 	 */
 	public void shuffle()

@@ -7,7 +7,7 @@ package chapter2;
  * 
  * @author Martin P. Robillard
  */
-public class MultiDeck
+public class MultiDeckSol
 {
 	private Deck[] aDecks;
 	
@@ -17,7 +17,7 @@ public class MultiDeck
 	 * @param pNumberOfDecks The number of decks in the multi-deck
 	 * @pre pNumberOfDecks > 0
 	 */
-	public MultiDeck(int pNumberOfDecks)
+	public MultiDeckSol(int pNumberOfDecks)
 	{
 		assert pNumberOfDecks > 0;
 		aDecks = new Deck[pNumberOfDecks];
