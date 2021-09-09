@@ -34,15 +34,22 @@ Add a method `getCards()` to the [`Deck`](../chapter-code/chapter2/Deck.java) cl
 
 ## Exercise 7
 
-Create a new class called `MultiDeck` that contains a list of decks (some card games require multiple decks). Make the class copyable through a copy constructor. First, make a shallow copy of the decks contained. Use the debugger to confirm that the decks in a multi-deck are shared between an original multi-deck and its copies. Then, use deep copying to make copied multi-decks fully distinct object graphs. Use design by contract and the `assert` statement to clarify the class's interface.
+Create a new class called `MultiDeck` that contains a list of decks (some card games require multiple decks). Make the class copyable through a copy constructor. First, make a shallow copy of the decks contained. Use the debugger to confirm that the decks in a multi-deck are shared between an original multi-deck and its copies. Then, use deep copying to make copied multi-decks fully distinct object graphs. Use design by contract and the `assert` statement to clarify the class's interface.jet
 
 ## Exercise 8
 
 Create a UML Object Diagram of a `MultiDeck` instance.
 
+### Diagram
+![MultiDeck UML diagram](Chapter 2 - Ex 8.png)
+
 ## Exercise 9
 
 Study JetUML's [MultiLineString](https://github.com/prmr/JetUML/blob/v1.0/src/ca/mcgill/cs/stg/jetuml/framework/MultiLineString.java) class and assess the quality of its encapsulation. Is it possible to modify its state without going through its methods?
+
+### Response
+
+The only references the class returns are to immutable objects, so there should be no way to modify the state of the object without using its methods.
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
