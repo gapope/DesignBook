@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * A collection of cards in a player's hand. Basic version for Exercise 1.
  */
-public class Hand implements Iterable<Card>, Comparable<Hand>
+public class HandSol implements Iterable<Card>, Comparable<HandSol>
 {
 	private final List<Card> aCards = new ArrayList<>();
 	private final int aMaxCards;
@@ -31,7 +31,7 @@ public class Hand implements Iterable<Card>, Comparable<Hand>
 	 * @param pMaxCards The maximum number of cards allowed in this hand.
 	 * @pre pMaxCards > 0;
 	 */
-	public Hand(int pMaxCards)
+	public HandSol(int pMaxCards)
 	{
 		assert pMaxCards > 0;
 		aMaxCards = pMaxCards;
@@ -99,28 +99,28 @@ public class Hand implements Iterable<Card>, Comparable<Hand>
 	}
 
 	@Override
-	public int compareTo(Hand pHand)
+	public int compareTo(HandSol pHand)
 	{
 		return aCards.size() - pHand.aCards.size();
 	}
 	
-	public static Comparator<Hand> createAscendingComparator()
+	public static Comparator<HandSol> createAscendingComparator()
 	{
-		return new Comparator<Hand>() {
+		return new Comparator<HandSol>() {
 
 			@Override
-			public int compare(Hand pHand1, Hand pHand2)
+			public int compare(HandSol pHand1, HandSol pHand2)
 			{
 				return pHand1.aCards.size() - pHand2.aCards.size();
 			}};
 	}
 	
-	public static Comparator<Hand> createDescendingComparator()
+	public static Comparator<HandSol> createDescendingComparator()
 	{
-		return new Comparator<Hand>() {
+		return new Comparator<HandSol>() {
 
 			@Override
-			public int compare(Hand pHand1, Hand pHand2)
+			public int compare(HandSol pHand1, HandSol pHand2)
 			{
 				return pHand2.aCards.size() - pHand1.aCards.size();
 			}};
@@ -142,17 +142,17 @@ public class Hand implements Iterable<Card>, Comparable<Hand>
 	 * @return A new Comparator instance that can compare by number
 	 * of cards of the specified rank.
 	 */
-	public static Comparator<Hand> createByRankComparator(Rank pRank)
+	public static Comparator<HandSol> createByRankComparator(Rank pRank)
 	{
-		return new Comparator<Hand>()
+		return new Comparator<HandSol>()
 		{
 			@Override
-			public int compare(Hand pHand1, Hand pHand2)
+			public int compare(HandSol pHand1, HandSol pHand2)
 			{
 				return countCards(pHand1, pRank) - countCards(pHand2, pRank);
 			}
 			
-			private int countCards(Hand pHand, Rank pRank)
+			private int countCards(HandSol pHand, Rank pRank)
 			{
 				int total = 0;
 				for( Card card : pHand)
@@ -173,8 +173,8 @@ public class Hand implements Iterable<Card>, Comparable<Hand>
 	 */
 	public static void main(String[] args)
 	{
-		Hand hand1 = new Hand(5);
-		Hand hand2 = new Hand(5);
+		HandSol hand1 = new HandSol(5);
+		HandSol hand2 = new HandSol(5);
 		Deck deck = new Deck();
 		deck.shuffle();
 		hand1.add(deck.draw());
@@ -182,7 +182,7 @@ public class Hand implements Iterable<Card>, Comparable<Hand>
 		hand2.add(deck.draw());
 		System.out.println(hand1.compareTo(hand2));
 		System.out.println(hand2.compareTo(hand1));
-		System.out.println(Hand.createAscendingComparator().compare(hand1, hand2));
-		System.out.println(Hand.createDescendingComparator().compare(hand1, hand2));
+		System.out.println(HandSol.createAscendingComparator().compare(hand1, hand2));
+		System.out.println(HandSol.createDescendingComparator().compare(hand1, hand2));
 	}
 }
