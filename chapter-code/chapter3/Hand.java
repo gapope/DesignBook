@@ -1,6 +1,7 @@
 package chapter3;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Hand implements Comparable<Hand> {
@@ -82,6 +83,32 @@ public class Hand implements Comparable<Hand> {
 		return aCards.size() == aCardCount;
 	}
 	
+	/**
+	 * Factory method for a comparator which prefers larger hand sizes
+	 * @return Comparator function object
+	 */
+	public static Comparator<Hand> createLargerSizeComparator()
+	{
+		return new Comparator<Hand>()
+		{
+			public int compare(Hand pHand1, Hand pHand2)
+			{ return pHand1.size() - pHand2.size(); }
+		};
+	}
+	
+	/**
+	 * Factory method for a comparator which prefers smaller hand sizes
+	 * @return Comparator function object
+	 */
+	public static Comparator<Hand> createSmallerSizeComparator()
+	{
+		return new Comparator<Hand>()
+		{
+			public int compare(Hand pHand1, Hand pHand2)
+			{ return pHand2.size() - pHand1.size(); }
+		};
+	}
+	
 	@Override
 	public int compareTo(Hand pHand)
 	{
@@ -99,9 +126,7 @@ public class Hand implements Comparable<Hand> {
 		hand2.add(deck.draw());
 		System.out.println(hand1.compareTo(hand2));
 		System.out.println(hand2.compareTo(hand1));
-		/*
-		System.out.println(Hand.createAscendingComparator().compare(hand1, hand2));
-		System.out.println(Hand.createDescendingComparator().compare(hand1, hand2));
-		*/
+		System.out.println(Hand.createLargerSizeComparator().compare(hand1, hand2));
+		System.out.println(Hand.createSmallerSizeComparator().compare(hand1, hand2));
 	}
 }
