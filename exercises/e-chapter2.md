@@ -41,7 +41,7 @@ Create a new class called `MultiDeck` that contains a list of decks (some card g
 Create a UML Object Diagram of a `MultiDeck` instance.
 
 ### Diagram
-![MultiDeck UML diagram](Chapter 2 - Ex 8.png)
+![MultiDeck UML diagram](diagrams/Chapter 2 - Ex 8.png)
 
 ## Exercise 9
 
