@@ -35,6 +35,9 @@ Extend the design of `Hand` so that instances of `Hand` can be iterated over thr
 
 Draw a class diagram that illustrates how a `Hand` supports being iterated over. You can omit modeling the comparison behavior.
 
+### Diagram
+![Hand UML diagram](diagrams/Chapter 3 - Ex 8.png)
+
 ## Exercise 9 :star: 
 
 Modify your `Hand` class to support a poker game and compare hands in terms of their strengths as [poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands). How should you deal with hands that do not have exactly five cards?
