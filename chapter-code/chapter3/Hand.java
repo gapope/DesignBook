@@ -2,9 +2,10 @@ package chapter3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
-public class Hand implements Comparable<Hand> {
+public class Hand implements Comparable<Hand>, Iterable<Card> {
 
 	private final int aCardCount;
 	private final List<Card> aCards = new ArrayList<>();
@@ -151,6 +152,12 @@ public class Hand implements Comparable<Hand> {
 		return size() - pHand.size();
 	}
 	
+	@Override
+	public Iterator<Card> iterator()
+	{
+		return aCards.iterator();
+	}
+	
 	public static void main(String[] args)
 	{
 		Hand hand1 = new Hand(5);
@@ -165,5 +172,15 @@ public class Hand implements Comparable<Hand> {
 		System.out.println(Hand.createLargerSizeComparator().compare(hand1, hand2));
 		System.out.println(Hand.createSmallerSizeComparator().compare(hand1, hand2));
 		System.out.println(Hand.createRankComparator(Rank.ACE).compare(hand1, hand2));
+		
+		for (Card card: hand1)
+		{
+			System.out.println(card.getRank() + " of " + card.getSuit());
+		}
+		
+		for (Card card: hand2)
+		{
+			System.out.println(card.getRank() + " of " + card.getSuit());
+		}
 	}
 }
