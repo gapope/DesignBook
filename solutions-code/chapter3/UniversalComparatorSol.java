@@ -18,7 +18,7 @@ import java.util.Comparator;
  * cards. This is not an example of good design, but the idea of the 
  * exercise is to think about why that may be.
  */
-public class UniversalComparator implements Comparator<HandSol>
+public class UniversalComparatorSol implements Comparator<HandSol>
 {
 	public enum Order { ASCENDING, DESCENDING }
 	
@@ -27,12 +27,12 @@ public class UniversalComparator implements Comparator<HandSol>
 	/**
 	 * Creates a comparator that compares in increasing size by default
 	 */
-	public UniversalComparator() {}
+	public UniversalComparatorSol() {}
 	
 	/**
 	 * @param pOrder Specifies the order
 	 */
-	public UniversalComparator(Order pOrder)
+	public UniversalComparatorSol(Order pOrder)
 	{
 		aOrder = pOrder;
 	}
@@ -69,7 +69,7 @@ public class UniversalComparator implements Comparator<HandSol>
 		HandSol hand1 = new HandSol(3);
 		HandSol hand2 = new HandSol(3);
 		hand1.add(new Card(Rank.ACE, Suit.CLUBS));
-		UniversalComparator comparator = new UniversalComparator();
+		UniversalComparatorSol comparator = new UniversalComparatorSol();
 		System.out.println(comparator.compare(hand1, hand2));
 		comparator.setOrder(Order.DESCENDING);
 		System.out.println(comparator.compare(hand1, hand2));

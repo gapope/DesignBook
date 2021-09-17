@@ -109,6 +109,42 @@ public class Hand implements Comparable<Hand> {
 		};
 	}
 	
+	/**
+	 * Factory method for a comparator which prefers a hand with more cards of the specified rank
+	 * @param pRank
+	 * @return Comparator function object
+	 */
+	public static Comparator<Hand> createRankComparator(Rank pRank)
+	{
+		return new Comparator<Hand>()
+		{
+			public int compare(Hand pHand1, Hand pHand2)
+			{
+				int diff = 0;
+				
+				diff = countRankCards(pRank, pHand1);
+				
+				diff -= countRankCards(pRank, pHand2);
+				
+				return diff;
+			}
+
+			private int countRankCards(Rank aRank, Hand pHand1) {
+				int cardsCount = 0;
+				
+				for (Card card: pHand1.aCards)
+				{
+					if (card.getRank() == aRank)
+					{
+						cardsCount++;
+					}
+				}
+				
+				return cardsCount;
+			}
+		};
+	}
+	
 	@Override
 	public int compareTo(Hand pHand)
 	{
@@ -128,5 +164,6 @@ public class Hand implements Comparable<Hand> {
 		System.out.println(hand2.compareTo(hand1));
 		System.out.println(Hand.createLargerSizeComparator().compare(hand1, hand2));
 		System.out.println(Hand.createSmallerSizeComparator().compare(hand1, hand2));
+		System.out.println(Hand.createRankComparator(Rank.ACE).compare(hand1, hand2));
 	}
 }
